@@ -16,7 +16,11 @@ public class UsuarioService {
     }
 
     public Usuario salvar(Usuario usuario){
-        return usuarioRepository.save(usuario);
+        try {
+            return usuarioRepository.save(usuario);
+        } catch(Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     public List<Usuario> buscarTodos(){
